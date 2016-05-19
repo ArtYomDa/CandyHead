@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="ff53df57-5cbd-4957-bfee-eac0ff771d54"
+  name="курсач UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="cdde1ac6-67b0-47cf-ab60-449992e1addd"
+        name="Пользователь"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="5de7bbad-368a-4ff5-9228-4d9065375e98"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="53d72226-cf6a-4608-a040-6c360196fd59"
+              LastKnownName="Настройка перед запуском"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e06ad47-35ec-4d5c-a7d3-e4169f0bd120"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bcb00ee3-db73-42a1-823a-f69d16b3f37b"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a423620a-7d14-440f-a3d1-017fddfc0446"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Выйти из игры"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6b491001-c8ec-41f8-a168-f4aec61c4913"
+              LastKnownName="Выйти из игры"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b0648bd3-66b9-48fc-af85-1445d4052fde"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba383d81-ad9f-4c6c-aaae-11bf359851ab"
+                  name="Выйти из игры"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b67391fc-4cca-418b-8475-246cd7eb602a"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Узнать об авторах"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="83f7759d-24d4-4df0-bc06-f289026ccf6a"
+              LastKnownName="Узнать об авторах"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9cfa2813-901e-4fdb-860d-780e79d0bcb6"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="738c942c-b314-46b7-b85d-e8feb0fd1957"
+                  name="Узнать об авторах"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3e63d5dd-6c71-4da1-8b9c-78eb57841e72"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Начать игру"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7d615d93-6edc-4592-a11b-c172cb3c0859"
+              LastKnownName="Начать игру"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8524bdd-a5f3-481f-affc-013546e2d544"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fe4650cd-e113-434e-9777-2d28aba63a74"
+                  name="Начать игру"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ab53e8ca-a937-4d96-869f-476175529d8a"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fef8b4a7-f0cc-4138-a4f4-25c9f260fcca"
+              LastKnownName="Выйти из игры"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14618299-85da-4c7a-8719-1265d1c15785"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61df0aa8-5fa2-49d9-91f0-ebf0e1e2b15e"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="569f2694-22be-4520-8f77-0f6f35f32aa3"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="UseCase2"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9e4a35f5-bb44-4a1f-8348-d6e5da64c4df"
+              LastKnownName="Узнать об игре"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="232005e9-773d-4530-aa79-96d4d654a35c"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e9b8923-01dd-41e1-a2f3-f8dc537ae9d7"
+                  name="UseCase2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7d615d93-6edc-4592-a11b-c172cb3c0859"
+        name="Начать игру"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="4cc292f3-3a9e-4fea-8aff-b4ae2f2df581">
+            <useCaseMoniker
+              Id="5b44ff7a-188f-4614-ac50-29cffb789923"
+              LastKnownName="Выбрать количество игроков"
+              LastKnownLocation="курсач UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="83f7759d-24d4-4df0-bc06-f289026ccf6a"
+        name="Узнать об авторах"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="53d72226-cf6a-4608-a040-6c360196fd59"
+        name="Настройка перед запуском"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7a9fa7d8-fc98-437b-8ebd-f53341393981"
+            isDerived="false"
+            sourceEndRoleName="Настройка перед запуском"
+            targetEndRoleName="Настройка"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9"
+              LastKnownName="Настройка"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="30f105a0-a423-48c7-bcc6-b31abb329923"
+                  name="Настройка перед запуском"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2b35a8d4-af42-416e-bb89-e2c920417bd1"
+                  name="Настройка"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="17ff2e08-3052-4262-8a76-ea8cb726a374"
+        name="Игрок n"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5a995597-0676-4e79-a3f7-fdeef4aeb4a4"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="cdde1ac6-67b0-47cf-ab60-449992e1addd"
+              LastKnownName="Пользователь"
+              LastKnownLocation="курсач UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="831ac9be-8db7-4424-b4be-c6f90d1a314a"
+            isDerived="false"
+            sourceEndRoleName="Игрок n"
+            targetEndRoleName="Фолд (сброс карт)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ea92d0af-81e3-42b8-bcac-473f59c658fe"
+              LastKnownName="Fold (сброс карт)"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f622cffb-d570-49c1-a7ed-28bf6c97f450"
+                  name="Игрок n"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a60d6cba-5d82-47af-ac17-ae43170aafe7"
+                  name="Фолд (сброс карт)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c8e4ea8c-6e69-453b-a860-86887c828267"
+            isDerived="false"
+            sourceEndRoleName="Игрок n"
+            targetEndRoleName="Сделать ставку"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f1b58d38-c123-4932-acdb-8e2446f32e72"
+              LastKnownName="Сделать ставку"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84d7b644-4d74-4751-8d70-cc1fea62d9bb"
+                  name="Игрок n"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="39e3abbf-f188-4d98-913c-9716631b1607"
+                  name="Сделать ставку"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3f648f90-0288-4a4b-9ac9-edee6c404ce7"
+            isDerived="false"
+            sourceEndRoleName="Игрок n"
+            targetEndRoleName="Меню паузы"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="684c1117-ed34-4123-bd0d-76a9006b7465"
+              LastKnownName="Меню паузы"
+              LastKnownLocation="курсач UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2135757-0b04-493c-8d53-5d8115a8aeba"
+                  name="Игрок n"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="97db7bd0-2539-480f-9721-5b212f0c8dd0"
+                  name="Меню паузы"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5b44ff7a-188f-4614-ac50-29cffb789923"
+        name="Выбрать количество игроков"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6b491001-c8ec-41f8-a168-f4aec61c4913"
+        name="Выйти из игры"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="39f11ff4-d566-4011-89c0-80af3167a62e"
+        name="Настройка графики"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="ddd135ef-12a7-4e40-a603-4bd7335caf07"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="1b904b52-5fe8-42a7-8faa-3d2d4587a9e4"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="ceae1718-cb2e-42d9-b19f-d4a6bde03f38"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9"
+        name="Настройка"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c5086ca2-f169-4928-a117-b3a0e7a9ce62"
+        name="Качество изображения"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9"
+            LastKnownName="Настройка"
+            LastKnownLocation="курсач UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ad70481b-fe90-462c-9332-260ef6bcf093"
+        name="Разрешение  экрана"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9"
+            LastKnownName="Настройка"
+            LastKnownLocation="курсач UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="62ff4229-817d-42a1-87f6-84d5cb8105f2"
+        name="Полноэкранный/оконный режим"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9"
+            LastKnownName="Настройка"
+            LastKnownLocation="курсач UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6eab7cbc-b1c9-4547-9f5e-b498e3caa827"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fef8b4a7-f0cc-4138-a4f4-25c9f260fcca"
+        name="Выйти из игры"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f1b58d38-c123-4932-acdb-8e2446f32e72"
+        name="Сделать ставку"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="53e172bc-3b01-497d-958f-7fda213c64a6">
+            <useCaseMoniker
+              Id="028f4598-0e64-4b69-b4e7-9aaf0a776733"
+              LastKnownName="Call (ответить)"
+              LastKnownLocation="курсач UML.uml" />
+          </include>
+          <include
+            Id="dbbe0781-539f-4090-ab5f-7ba8aaac2f5c">
+            <useCaseMoniker
+              Id="5a2a8fb0-5043-40c7-8474-5f2cfe85d487"
+              LastKnownName="Raise (повысить)"
+              LastKnownLocation="курсач UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ea92d0af-81e3-42b8-bcac-473f59c658fe"
+        name="Fold (сброс карт)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="684c1117-ed34-4123-bd0d-76a9006b7465"
+        name="Меню паузы"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="f904d119-c905-4dad-ac4b-c7134c6328d9">
+            <useCaseMoniker
+              Id="fef8b4a7-f0cc-4138-a4f4-25c9f260fcca"
+              LastKnownName="Выйти из игры"
+              LastKnownLocation="курсач UML.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="ce267f7c-7c5c-4367-89a1-0ae253bd1e08">
+            <useCaseMoniker
+              Id="265bb219-5658-4fda-8c33-10d3bbf40030"
+              LastKnownName="Выйти в меню"
+              LastKnownLocation="курсач UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="028f4598-0e64-4b69-b4e7-9aaf0a776733"
+        name="Call (ответить)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5a2a8fb0-5043-40c7-8474-5f2cfe85d487"
+        name="Raise (повысить)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="265bb219-5658-4fda-8c33-10d3bbf40030"
+        name="Выйти в меню"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5ac92c8e-7340-4456-9912-134fafa146f7"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9e4a35f5-bb44-4a1f-8348-d6e5da64c4df"
+        name="Узнать об игре"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
