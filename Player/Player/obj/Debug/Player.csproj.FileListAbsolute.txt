@@ -1,0 +1,6 @@
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\bin\Debug\Player.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\bin\Debug\Player.pdb
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\bin\Debug\Card.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\obj\Debug\Player.csprojResolveAssemblyReference.cache
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\obj\Debug\Player.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Player\Player\obj\Debug\Player.pdb

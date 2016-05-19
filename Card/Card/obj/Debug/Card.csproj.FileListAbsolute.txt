@@ -1,0 +1,5 @@
+C:\Users\Eremita\Desktop\Курсач 2016\Card\Card\bin\Debug\Card.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Card\Card\bin\Debug\Card.pdb
+C:\Users\Eremita\Desktop\Курсач 2016\Card\Card\obj\Debug\Card.csprojResolveAssemblyReference.cache
+C:\Users\Eremita\Desktop\Курсач 2016\Card\Card\obj\Debug\Card.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Card\Card\obj\Debug\Card.pdb
