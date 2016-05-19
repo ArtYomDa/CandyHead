@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="84d8dd53-8703-42e8-8560-cb32fe239630" name="UMLUseCaseDiagram1" linkedPackageId="b9dcc285-3627-4a06-a268-9a8a93cb2239" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="6339163e-fd50-460d-8ef3-0d7c556a5cb2">
+      <profileInstance Id="9a18187e-ceae-458b-aaaa-084b532c06ed" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9346bafe-d2e5-4647-a7b3-ce4ad4c0900f">
+      <profileInstance Id="83d036c3-39ac-4d8d-acd6-fc6f3228960f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="8aee1209-401f-4ae1-a590-f232c5bce035" name="Пользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cdde1ac6-67b0-47cf-ab60-449992e1addd" />
+        <targetEnds>
+          <association Id="a3c42ae3-2a4d-4fd6-a8e7-90c55b772a2d" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="18ae8d44-418c-43f4-852b-193c094702e0" LastKnownName="Настройка перед запуском" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ac5b319f-eefb-4d90-be47-402e93590037" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5e06ad47-35ec-4d5c-a7d3-e4169f0bd120" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5550d816-4f1b-47c8-8074-dac70db890a8" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bcb00ee3-db73-42a1-823a-f69d16b3f37b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5de7bbad-368a-4ff5-9228-4d9065375e98" />
+          </association>
+          <association Id="aa1672e3-6b9e-4327-8123-2ecc65e7be92" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Узнать об авторах" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="11366f99-7d12-440f-b32d-b027078b3e8e" LastKnownName="Узнать об авторах" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="520a4b73-d2af-4034-98f5-7eec7efd9c76" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9cfa2813-901e-4fdb-860d-780e79d0bcb6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="04c74985-4a8f-461b-9a2e-22197e43c8ab" name="Узнать об авторах" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="738c942c-b314-46b7-b85d-e8feb0fd1957" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b67391fc-4cca-418b-8475-246cd7eb602a" />
+          </association>
+          <association Id="ecea170d-1644-4901-b934-497cdf634f89" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Начать игру" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b9aec273-42e1-4273-85ac-7946c77fe438" LastKnownName="Начать игру" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d467e22a-f604-4c93-b18d-1fd988c3282c" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c8524bdd-a5f3-481f-affc-013546e2d544" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f0388874-0cfe-4db0-9715-12172d30a4fc" name="Начать игру" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fe4650cd-e113-434e-9777-2d28aba63a74" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3e63d5dd-6c71-4da1-8b9c-78eb57841e72" />
+          </association>
+          <association Id="555d826a-f5a7-434a-bf76-790d05d6c619" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9991c1f5-c600-4197-9cea-41323207d722" LastKnownName="Выйти из игры" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="692d8521-ed0a-43b0-aae0-8a6b9e8ddac6" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="14618299-85da-4c7a-8719-1265d1c15785" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="41b7fcb8-19a7-4de5-bce6-e98bac5cc869" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="61df0aa8-5fa2-49d9-91f0-ebf0e1e2b15e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ab53e8ca-a937-4d96-869f-476175529d8a" />
+          </association>
+          <association Id="a15bc7f1-efb9-41fe-9257-2368693a8e09" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="UseCase2" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a8a1cc87-8643-4328-bbe8-e6974c0f6c28" LastKnownName="Узнать об игре" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="09059593-106a-4a04-8375-6d11f7e0e59f" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="232005e9-773d-4530-aa79-96d4d654a35c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fdffd5d6-710a-4945-a1f9-28eb16c8ee98" name="UseCase2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7e9b8923-01dd-41e1-a2f3-f8dc537ae9d7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="569f2694-22be-4520-8f77-0f6f35f32aa3" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b9aec273-42e1-4273-85ac-7946c77fe438" name="Начать игру" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7d615d93-6edc-4592-a11b-c172cb3c0859" />
+        <additions>
+          <include Id="0daf65a1-aa21-42bd-b12d-f451ed9a6f5c">
+            <useCaseMoniker Id="53189a0b-c5c8-46e3-b080-42459e5e8d1c" LastKnownName="Выбрать количество игроков" />
+            <elementDefinition Id="4cc292f3-3a9e-4fea-8aff-b4ae2f2df581" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="11366f99-7d12-440f-b32d-b027078b3e8e" name="Узнать об авторах" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="83f7759d-24d4-4df0-bc06-f289026ccf6a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="18ae8d44-418c-43f4-852b-193c094702e0" name="Настройка перед запуском" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="53d72226-cf6a-4608-a040-6c360196fd59" />
+        <targetEnds>
+          <association Id="a001f6ef-98a5-4cd3-be9d-5e53d7074b32" isDerived="false" sourceEndRoleName="Настройка перед запуском" targetEndRoleName="Настройка" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="a9b34e80-5f8e-4991-9444-c48e78058969" LastKnownName="Настройка" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="01bebcc5-8b4e-4b34-bdab-ad3c88d1a0b3" name="Настройка перед запуском" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="30f105a0-a423-48c7-bcc6-b31abb329923" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="107d071b-2a92-4c38-8025-660c4862c183" name="Настройка" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2b35a8d4-af42-416e-bb89-e2c920417bd1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7a9fa7d8-fc98-437b-8ebd-f53341393981" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e1b9cf49-eeef-4b2f-be91-739737236b44" name="Игрок n" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="17ff2e08-3052-4262-8a76-ea8cb726a374" />
+        <generalsInternal>
+          <generalization Id="b3a4d9a6-4a9e-4b58-9ca0-55f0076f0672" isSubstitutable="false">
+            <actorMoniker Id="8aee1209-401f-4ae1-a590-f232c5bce035" LastKnownName="Пользователь" />
+            <elementDefinition Id="5a995597-0676-4e79-a3f7-fdeef4aeb4a4" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="84a97eac-2785-4dad-92ea-d8cf9030fe37" isDerived="false" sourceEndRoleName="Игрок n" targetEndRoleName="Фолд (сброс карт)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="09bc7075-2d93-4908-a0bd-80c3a62678f1" LastKnownName="Fold (сброс карт)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8e036bd-71f8-4456-869b-43674fa3f928" name="Игрок n" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f622cffb-d570-49c1-a7ed-28bf6c97f450" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ec3838ea-cec1-48da-9472-7d54db4f5117" name="Фолд (сброс карт)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a60d6cba-5d82-47af-ac17-ae43170aafe7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="831ac9be-8db7-4424-b4be-c6f90d1a314a" />
+          </association>
+          <association Id="c42306f4-2a86-488e-9ccc-2300db684974" isDerived="false" sourceEndRoleName="Игрок n" targetEndRoleName="Сделать ставку" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1e633123-7670-4ba9-8d15-a7c6a12710aa" LastKnownName="Сделать ставку" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86662059-7ff8-445e-91a0-664fed64b132" name="Игрок n" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="84d7b644-4d74-4751-8d70-cc1fea62d9bb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa9a0418-2a63-4045-bc73-67670aa63fa5" name="Сделать ставку" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="39e3abbf-f188-4d98-913c-9716631b1607" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c8e4ea8c-6e69-453b-a860-86887c828267" />
+          </association>
+          <association Id="375e0a52-0294-4037-aae6-f6cea2273be2" isDerived="false" sourceEndRoleName="Игрок n" targetEndRoleName="Меню паузы" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4cd35d23-ef76-4cf1-a4b4-e00ebe72eb9f" LastKnownName="Меню паузы" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="31f5f306-7e28-4109-aadd-1c769426afb2" name="Игрок n" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b2135757-0b04-493c-8d53-5d8115a8aeba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e411ac0b-9273-41de-ba1a-44d2eb0abaf3" name="Меню паузы" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="97db7bd0-2539-480f-9721-5b212f0c8dd0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3f648f90-0288-4a4b-9ac9-edee6c404ce7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="53189a0b-c5c8-46e3-b080-42459e5e8d1c" name="Выбрать количество игроков" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5b44ff7a-188f-4614-ac50-29cffb789923" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="a9b34e80-5f8e-4991-9444-c48e78058969" name="Настройка" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="72f3a599-8d3a-4e71-a36c-6b62e1ea2bb9" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="c2edecd6-f1eb-499d-832f-d319ee4cd8f2" name="Качество изображения" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c5086ca2-f169-4928-a117-b3a0e7a9ce62" />
+        <subjects>
+          <subsystemMoniker Id="a9b34e80-5f8e-4991-9444-c48e78058969" LastKnownName="Настройка" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7738b811-18da-4f2d-adaf-c59122d36019" name="Разрешение  экрана" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ad70481b-fe90-462c-9332-260ef6bcf093" />
+        <subjects>
+          <subsystemMoniker Id="a9b34e80-5f8e-4991-9444-c48e78058969" LastKnownName="Настройка" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="d9465500-7c49-41ba-8f50-ced4c1f0e7e4" name="Полноэкранный/оконный режим" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="62ff4229-817d-42a1-87f6-84d5cb8105f2" />
+        <subjects>
+          <subsystemMoniker Id="a9b34e80-5f8e-4991-9444-c48e78058969" LastKnownName="Настройка" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9991c1f5-c600-4197-9cea-41323207d722" name="Выйти из игры" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fef8b4a7-f0cc-4138-a4f4-25c9f260fcca" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1e633123-7670-4ba9-8d15-a7c6a12710aa" name="Сделать ставку" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f1b58d38-c123-4932-acdb-8e2446f32e72" />
+        <additions>
+          <include Id="1641d377-96a1-47b7-bbc1-0c4d193d6d76">
+            <useCaseMoniker Id="9c94498e-c90d-40dd-bf04-313477a19f37" LastKnownName="Call (ответить)" />
+            <elementDefinition Id="53e172bc-3b01-497d-958f-7fda213c64a6" />
+          </include>
+          <include Id="6a7abbd5-3de2-4fa8-a626-aa2579ead70f">
+            <useCaseMoniker Id="12731778-d1cd-4633-bb69-8468b251c921" LastKnownName="Raise (повысить)" />
+            <elementDefinition Id="dbbe0781-539f-4090-ab5f-7ba8aaac2f5c" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="09bc7075-2d93-4908-a0bd-80c3a62678f1" name="Fold (сброс карт)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ea92d0af-81e3-42b8-bcac-473f59c658fe" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4cd35d23-ef76-4cf1-a4b4-e00ebe72eb9f" name="Меню паузы" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="684c1117-ed34-4123-bd0d-76a9006b7465" />
+        <extendedCases>
+          <extend Id="89151bc1-022a-4000-84f0-ce7d359aa8e4">
+            <useCaseMoniker Id="9991c1f5-c600-4197-9cea-41323207d722" LastKnownName="Выйти из игры" />
+            <elementDefinition Id="f904d119-c905-4dad-ac4b-c7134c6328d9" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="92066637-5d3a-46dc-8066-90392d9fd034">
+            <useCaseMoniker Id="8367a672-16db-4874-92ef-ed994afcb3cd" LastKnownName="Выйти в меню" />
+            <elementDefinition Id="ce267f7c-7c5c-4367-89a1-0ae253bd1e08" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9c94498e-c90d-40dd-bf04-313477a19f37" name="Call (ответить)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="028f4598-0e64-4b69-b4e7-9aaf0a776733" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="12731778-d1cd-4633-bb69-8468b251c921" name="Raise (повысить)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5a2a8fb0-5043-40c7-8474-5f2cfe85d487" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8367a672-16db-4874-92ef-ed994afcb3cd" name="Выйти в меню" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="265bb219-5658-4fda-8c33-10d3bbf40030" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a8a1cc87-8643-4328-bbe8-e6974c0f6c28" name="Узнать об игре" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9e4a35f5-bb44-4a1f-8348-d6e5da64c4df" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="b9dcc285-3627-4a06-a268-9a8a93cb2239" name="курсач UML">
+    <elementDefinition Id="ff53df57-5cbd-4957-bfee-eac0ff771d54" />
+  </package>
+</useCaseModelRoot>
