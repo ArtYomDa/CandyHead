@@ -54,17 +54,53 @@ namespace Logiс
 
         public static List<Card> ExtractStraightFlush(List<Card> set)
         {
-            var buf = set.Min();
-            set.Sort();
+            #region Creating new cards' array
+
+            var dictionary = SplitBySuit(set);
+
+            var temp = (from pair in dictionary
+                        where pair.Value.Count >= 5
+                        select pair.Value).ToList();
+
+            List<Card> list;
+
+            if (temp.Count != 0)
+                list = temp[0];
+            else
+                throw new Exception("Error in the method ExtractStraightFlush. Wrong array format");
+
+            #endregion
+
+            #region Processing the least Straight Flush combination
+            
+            var listForWheel = (from card in list
+                where card.Value == CardValue.Ace
+                      || card.Value == CardValue.Two
+                      || card.Value == CardValue.Three
+                      || card.Value == CardValue.Four
+                      || card.Value == CardValue.Five
+                select card).ToList();
+
+            if (listForWheel.Count == 5)
+                return listForWheel;
+
+            #endregion
+
+            var buf = list.Min();
+            list.Sort();
             
             //Searching for the first card in the combination
             
             for (int i = 1; i <= 3; i++)
             {
-                if (
-                    !(set.Any(card => card.Value == buf.Value + 1 && card.Suit == buf.Suit) &&
-                      set.Any(card => card.Value == buf.Value + 2 && card.Suit == buf.Suit)))
+                if (!(list.Any(card => card.Value == buf.Value + 1 && card.Suit == buf.Suit) &&
+                      list.Any(card => card.Value == buf.Value + 2 && card.Suit == buf.Suit)))
+                {
                     buf = set[i];
+
+                    if (i == 3)
+                        throw new Exception("Error in the method ExtractStraightFlush. There is'n a combination in the input array");
+                }
                 else
                     break;
             }
@@ -72,8 +108,15 @@ namespace Logiс
             return new List<Card>
             {
                 buf,
-                set.
+                new Card(buf.Suit, buf.Value + 1),
+                new Card(buf.Suit, buf.Value + 2),
+                new Card(buf.Suit, buf.Value + 3)
             };
+        }
+
+        public static List<Card> ExtractFourOfAKind(List<Card> set)
+        {
+            
         }
         
         public static int CompareStraightFlush(List<Card> straightFlush_1, List<Card> straightFlush_2)
@@ -106,6 +149,7 @@ namespace Logiс
 
         public static int CompareFourOfAKind(List<Card> fourOfAKind_1, List<Card> fourOfAKind_2)
         {
+            //TODO
             var fou
         }
  
@@ -113,7 +157,7 @@ namespace Logiс
         private static bool IsOnlyOneSuit(List<Card> cards)
         {
             if (cards.Count == 0) 
-                throw new Exception("Пустой массив карт в функции IsOnlyOneSuit");
+                throw new Exception("Empty cards' array in the method IsOnlyOneSuit");
 
             var model = cards[0].Value;
 
@@ -155,17 +199,37 @@ namespace Logiс
         private static bool TryFindStraightFlush(List<Card> set)
         {
             if (set.Count == 0)
-                throw new Exception("Пустой массив карт в функции TryFindStraightFlush");
-            
+                throw new Exception("Empty cards' array in the method TryFindStraightFlush");
+
+            //We need to create new cards' array, because we need the card value repeats
+            // only once in the array
+
+            #region Creating new cards' array
+ 
+            var dictionary = SplitBySuit(set);
+
+            var temp = (from pair in dictionary
+                where pair.Value.Count >= 5
+                select pair.Value).ToList();
+
+            List<Card> list;
+
+            if (temp.Count != 0)
+                list = temp[0];
+            else
+                return false;
+
+            #endregion
+
             //Start searching from  the min value 
-            var buf = set.Min().Value;
+            var buf = list.Min();
 
             #region Cheking for the least Straight Flush combination
 
-            if (buf == CardValue.Two)
-                if (set.Max().Value == CardValue.Ace)
-                    if (set.Any(card => card.Value == CardValue.Three))
-                        if (set.Any(card => card.Value == CardValue.Four))
+            if (buf.Value == CardValue.Two)
+                if (list.Max().Value == CardValue.Ace)
+                    if (list.Any(card => card.Value == CardValue.Three))
+                        if (list.Any(card => card.Value == CardValue.Four))
                             return true;
 
             #endregion
@@ -173,29 +237,30 @@ namespace Logiс
             //So as there may be from five to seven cards in the input array
             //we must do some settings for count=6 and count=7
 
-            if (set.Count == 6)
+            if (list.Count == 6)
             {
                 //For count=6 we must check only one extra if it belongs
                 // the interval or not
-                if (set.All(card => card.Value != buf + 1))
+                if (list.All(card => card.Value != buf.Value + 1))
                 {
                     // And if not - chose the next card
-                    set.Sort();
-                    buf = set[1].Value;
+                    list.Sort();
+                    buf.Value = list[1].Value;
+                    list.Remove(buf);
                 }
             }
-            else if (set.Count == 7)
+            else if (list.Count == 7)
             {
                 //For count=7 we must check two extra cards
                 
-                if (set.All(card => card.Value != buf + 1))
+                if (list.All(card => card.Value != buf.Value + 1))
                 {
-                    set.Sort();
-                    buf = set[1].Value;
+                    list.Sort();
+                    buf.Value = list[1].Value;
 
-                    if (set.All(card => card.Value != buf + 1))
+                    if (list.All(card => card.Value != buf.Value + 1))
                     {
-                        buf = set[2].Value;
+                        buf.Value = list[2].Value;
                     }
                 }
             }
@@ -204,9 +269,9 @@ namespace Logiс
  
             for (int i = 0; i < 4; i++)
             {
-                if (set.Any(card => card.Value == buf + 1))
+                if (list.Any(card => card.Value == buf.Value + 1))
                 {
-                    buf++;
+                    buf.Value++;
                 }
                 else
                     return false;
@@ -218,7 +283,7 @@ namespace Logiс
         private static bool TryFindFourOfAKind(List<Card> set)
         {
             if (set.Count == 0)
-                throw new Exception("Пустой массив карт в функции TryFindFourOfAKind");
+                throw new Exception("Empty cards' array in the method TryFindFourOfAKind");
             
             var buf = set[0].Value;
 
