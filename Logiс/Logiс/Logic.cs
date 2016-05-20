@@ -10,7 +10,7 @@ using Cards;
 
 namespace Logiс
 {
-    public class Logic
+    public static class Logic
     {
         //TODO: Change combinations' codes afted making codes' table
         public static int GetPlayerBestCombination(List<Card> hand, List<Card> table)
@@ -38,6 +38,8 @@ namespace Logiс
             }
             
         }
+
+        #region Extract Functions
 
         public static List<Card> ExtractRoyalFlush(List<Card> set)
         {
@@ -91,14 +93,15 @@ namespace Logiс
             
             //Searching for the first card in the combination
             
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 if (!(list.Any(card => card.Value == buf.Value + 1 && card.Suit == buf.Suit) &&
-                      list.Any(card => card.Value == buf.Value + 2 && card.Suit == buf.Suit)))
+                      list.Any(card => card.Value == buf.Value + 2 && card.Suit == buf.Suit) &&
+                      list.Any(card => card.Value == buf.Value + 3 && card.Suit == buf.Suit)))
                 {
                     buf = set[i];
 
-                    if (i == 3)
+                    if (i == 4)
                         throw new Exception("Error in the method ExtractStraightFlush. There is'n a combination in the input array");
                 }
                 else
@@ -110,32 +113,302 @@ namespace Logiс
                 buf,
                 new Card(buf.Suit, buf.Value + 1),
                 new Card(buf.Suit, buf.Value + 2),
-                new Card(buf.Suit, buf.Value + 3)
+                new Card(buf.Suit, buf.Value + 3),
+                new Card(buf.Suit, buf.Value + 4)
             };
         }
 
         public static List<Card> ExtractFourOfAKind(List<Card> set)
         {
+            if (set.Count == 0)
+                throw new Exception("Empty cards' array in the method ExtractFourOfAKind");
             
+            // Create new card array, because we need to have oportunity
+            // to remove cards from the array
+
+            List<Card> _set = new List<Card>(set);
+            
+            var fourOfAKindCard = _set[0];
+            int i = 1;
+
+            while (_set.Count(card1 => card1.Value == fourOfAKindCard.Value) != 4)
+            {
+                if (i == _set.Count)
+                    throw new Exception(
+                        "Error in the mothod ExtractFourOfAKind. There isn't valid combination in the array");
+
+                fourOfAKindCard = _set[i];
+                i++;
+            }
+
+            var list = (from card in _set
+                where card.Value == fourOfAKindCard.Value
+                select card).ToList();
+
+            _set.RemoveAll(card => card.Value == fourOfAKindCard.Value);
+
+            list.Add(_set.Max());
+
+            return list;
+        }
+
+        public static List<Card> ExtractFullHouse(List<Card> set)
+        {
+            List<Card> rezult = new List<Card>();
+
+            rezult.AddRange(ExtractSet(set));
+            rezult.AddRange(ExtractPair(set));
+
+            return rezult;
         }
         
+        public static List<Card> ExtractFlush(List<Card> set)
+        {
+            var dictionary = SplitBySuit(set);
+
+            //Gother cards with same suits 
+            
+            var listSameSuit = (from pair in dictionary
+                where pair.Value.Count >= 5
+                select pair.Value).ToList()[0];
+            
+            //Then remove the least card, until there will be five cards in the array
+
+            while (listSameSuit.Count != 5)
+                listSameSuit.Remove(listSameSuit.Min());
+
+            return listSameSuit;
+        }
+
+        public static List<Card> ExtractSraight(List<Card> set)
+        {
+            #region Processing the least Straight Flush combination
+
+            var listForWheel = (from card in set
+                                where card.Value == CardValue.Ace
+                                      || card.Value == CardValue.Two
+                                      || card.Value == CardValue.Three
+                                      || card.Value == CardValue.Four
+                                      || card.Value == CardValue.Five
+                                select card).ToList();
+
+            if (listForWheel.Count == 5)
+                return listForWheel;
+
+            #endregion
+
+            var buf = set.Min();
+            set.Sort();
+
+            //Searching for the first card in the combination
+
+            for (int i = 1; i <= 4; i++)
+            {
+                if (!(set.Any(card => card.Value == buf.Value + 1) &&
+                      set.Any(card => card.Value == buf.Value + 2) &&
+                      set.Any(card => card.Value == buf.Value + 3)))
+                {
+                    buf = set[i];
+
+                    if (i == 4)
+                        throw new Exception("Error in the method ExtractStraight. There is'n a combination in the input array");
+                }
+                else
+                    break;
+            }
+
+            return new List<Card>
+            {
+                buf,
+                set.Find(card => card.Value == buf.Value + 1),
+                set.Find(card => card.Value == buf.Value + 2),
+                set.Find(card => card.Value == buf.Value + 3),
+                set.Find(card => card.Value == buf.Value + 4)
+            };
+        }
+
+        public static List<Card> ExtractSet(List<Card> cards)
+        {
+            var list = new List<Card>(cards);
+            List<Card> rezult = new List<Card>();
+            
+            for (int i = 0; i < list.Count && list.Count > 3; i++)
+            {
+                var card = list[i];
+                
+                //If there is Set in the input array
+                
+                if (list.Count(card1 => card1.Value == card.Value) == 3)
+                {
+                    // take it
+                    var range = list.FindAll(card1 => card1.Value == card.Value);
+                    
+                    // and if it is greater than a preveous one
+                    if (rezult.Count != 0)
+                        if (range.Max().Value <= rezult.Max().Value) 
+                            continue;
+
+                    // put it in the output array
+                    rezult.Clear();
+                    rezult.AddRange(range);
+                    
+                    //Remove finded Set from array
+                    list.RemoveAll(card1 => card1.Value == card.Value);
+                    i = -1;     //reset i
+                }
+            }
+            
+            //Put kickers in the output array
+            
+            list = new List<Card>(cards);
+            rezult.ForEach(card => list.Remove(card));
+
+            rezult.Add(list.Max());
+            list.Remove(list.Max());
+            rezult.Add(list.Max());
+
+            return rezult;
+        }
+
+        public static List<Card> ExtractTwoPairs(List<Card> set)
+        {
+            var list = new List<Card>(set);
+            List<Card> rezult = new List<Card>();
+
+            for (int i = 0; i < 2; i++)
+            {
+                var buf = ExtractPair(list);
+                
+                rezult.Add(buf[0]);
+                rezult.Add(buf[1]);
+
+                buf.ForEach(card => list.Remove(card));
+            }
+
+            rezult.Add(list.Max());
+
+            return rezult;
+        }
+
+        public static List<Card> ExtractPair(List<Card> set)
+        {
+            var list = new List<Card>(set);
+            List<Card> rezult = new List<Card>();
+
+            //for (int i = 0; i < 5 && i < list.Count; i++)
+            //{
+            //    var card = set[i];
+
+            //    if (set.Count(card1 => card1.Value == card.Value) == 2)
+            //    {
+            //        rezult.Add(card);
+            //        list.Remove(card);
+            //        rezult.Add(list.Find(card1 => card1.Value == card.Value));
+
+            //        break;
+            //    }
+            //}
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    rezult.Add(list.Max());
+            //    list.Remove(list.Max());
+            //}
+
+            //return rezult;
+
+            for (int i = 0; i < list.Count && list.Count > 2; i++)
+            {
+                var card = list[i];
+
+                //If there is Pair in the input array
+
+                if (list.Count(card1 => card1.Value == card.Value) == 2)
+                {
+                    // take it
+                    var range = list.FindAll(card1 => card1.Value == card.Value);
+
+                    // and if it is greater than a preveous one
+                    if (rezult.Count != 0)
+                        if (range.Max().Value <= rezult.Max().Value)
+                            continue;
+
+                    // put it in the output array
+                    rezult.Clear();
+                    rezult.AddRange(range);
+
+                    //Remove finded Pair from array
+                    list.RemoveAll(card1 => card1.Value == card.Value);
+                    i = -1; //reset i
+                }
+            }
+
+            //Initialize list with the input array without Pair for adding kickers
+            list = new List<Card>(set);
+            rezult.ForEach(card => list.Remove(card));
+
+            for (int i = 0; i < 3; i++)
+            {
+                rezult.Add(list.Max());
+                list.Remove(list.Max());
+            }
+
+            return rezult;
+        }
+
+        #endregion        
+        
+        #region Compare Functions
+
         public static int CompareStraightFlush(List<Card> straightFlush_1, List<Card> straightFlush_2)
         {
-            var value_1 = straightFlush_1.Max().Value;
-            var value_2 = straightFlush_2.Max().Value;
+            return CompareStraight(straightFlush_1, straightFlush_2);
+        }
+
+        public static int CompareFourOfAKind(List<Card> fourOfAKind_1, List<Card> fourOfAKind_2)
+        {
+            //Notice: combination in the array starts with four same cards and ends with kicker.
+            //So array must be got from the Extract function
+
+            return CompareCombinationsWithKickers(fourOfAKind_1, fourOfAKind_2, 4);
+        }
+
+        public static int CompareFullHouse(List<Card> fullHouse_1, List<Card> fullHouse_2)
+        {
+            return CompareCombinationsWithKickers(fullHouse_1, fullHouse_2, 3);
+        }
+        
+        public static int CompareFlush(List<Card> flush_1, List<Card> flush_2)
+        {
+            var value_1 = flush_1.Max().Value;
+            var value_2 = flush_2.Max().Value;
 
             if (value_1 > value_2)
                 return 1;
 
             if (value_1 < value_2)
                 return -1;
-            
+
+            return 0;
+        }
+        
+        public static int CompareStraight(List<Card> straight_1, List<Card> straight_2)
+        {
+            var value_1 = straight_1.Max().Value;
+            var value_2 = straight_2.Max().Value;
+
+            if (value_1 > value_2)
+                return 1;
+
+            if (value_1 < value_2)
+                return -1;
+
             //Processing cases with Ace
-            
+
             if (value_1 == CardValue.Ace)
             {
-                var min_1 = straightFlush_1.Min().Value;
-                var min_2 = straightFlush_2.Min().Value;
+                var min_1 = straight_1.Min().Value;
+                var min_2 = straight_2.Min().Value;
 
                 if (min_1 > min_2)
                     return 1;
@@ -147,13 +420,31 @@ namespace Logiс
             return 0;
         }
 
-        public static int CompareFourOfAKind(List<Card> fourOfAKind_1, List<Card> fourOfAKind_2)
+        public static int CompareSet(List<Card> set_1, List<Card> set_2)
         {
-            //TODO
-            var fou
+            //Notice: the first three card in the arrays are Sets
+            //The rest are kickers in discending order
+
+            return CompareCombinationsWithKickers(set_1, set_2, 3);
         }
+
+        public static int CompareTwoPairs(List<Card> twoPairs_1, List<Card> twoPairs_2)
+        {
+            return CompareCombinationsWithKickers(twoPairs_1, twoPairs_2, 4);
+        }
+
+        public static int ComparePair(List<Card> pair_1, List<Card> pair_2)
+        {
+            //Notice: the first two card in the arrays are Pairs
+            //The rest are kickers in discending order
+
+            return CompareCombinationsWithKickers(pair_1, pair_2, 2);
+        }
+        
+        #endregion
+
+        #region Technical functions  
  
-#region Technical functions   
         private static bool IsOnlyOneSuit(List<Card> cards)
         {
             if (cards.Count == 0) 
@@ -183,6 +474,27 @@ namespace Logiс
             return dictionary;
         }
 
+        private static int CompareCombinationsWithKickers(List<Card> comb_1, List<Card> comb_2, int kickerIndex)
+        {
+            var card_1 = comb_1[0];
+            var card_2 = comb_2[0];
+
+            if (card_1.Value == card_2.Value)
+            {
+                card_1 = comb_1[kickerIndex];
+                card_2 = comb_2[kickerIndex];
+            }
+
+            if (card_1.Value > card_2.Value)
+                return 1;
+
+            if (card_1.Value < card_2.Value)
+                return -1;
+
+            return 0;
+        }
+
+        
         private static bool TryFindRoyalFlush(List<Card> set)
         {
             var dictionary = SplitBySuit(set);
@@ -221,63 +533,7 @@ namespace Logiс
 
             #endregion
 
-            //Start searching from  the min value 
-            var buf = list.Min();
-
-            #region Cheking for the least Straight Flush combination
-
-            if (buf.Value == CardValue.Two)
-                if (list.Max().Value == CardValue.Ace)
-                    if (list.Any(card => card.Value == CardValue.Three))
-                        if (list.Any(card => card.Value == CardValue.Four))
-                            return true;
-
-            #endregion
-            
-            //So as there may be from five to seven cards in the input array
-            //we must do some settings for count=6 and count=7
-
-            if (list.Count == 6)
-            {
-                //For count=6 we must check only one extra if it belongs
-                // the interval or not
-                if (list.All(card => card.Value != buf.Value + 1))
-                {
-                    // And if not - chose the next card
-                    list.Sort();
-                    buf.Value = list[1].Value;
-                    list.Remove(buf);
-                }
-            }
-            else if (list.Count == 7)
-            {
-                //For count=7 we must check two extra cards
-                
-                if (list.All(card => card.Value != buf.Value + 1))
-                {
-                    list.Sort();
-                    buf.Value = list[1].Value;
-
-                    if (list.All(card => card.Value != buf.Value + 1))
-                    {
-                        buf.Value = list[2].Value;
-                    }
-                }
-            }
-
-            //At the end of the checking we should check the rest cards
- 
-            for (int i = 0; i < 4; i++)
-            {
-                if (list.Any(card => card.Value == buf.Value + 1))
-                {
-                    buf.Value++;
-                }
-                else
-                    return false;
-            }
-            
-            return true;
+            return TryFindStraight(list);
         }
 
         private static bool TryFindFourOfAKind(List<Card> set)
@@ -304,6 +560,154 @@ namespace Logiс
 
             return false;
         }
+
+        private static bool TryFindFullHouse(List<Card> set)
+        {
+            var list = new List<Card>(set);
+
+            if (TryFindPair(list))
+            {
+                ExtractPair(list).ForEach(card => list.Remove(card));
+
+                if (TryFindSet(list))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private static bool TryFindFlush(List<Card> set)
+        {
+            var dictionary = SplitBySuit(set);
+
+            if (dictionary.Any(pair => pair.Value.Count >= 5))
+                return true;
+
+            return false;
+        }
+        
+        private static bool TryFindStraight(List<Card> set)
+        {
+            if (set.Count == 0)
+                throw new Exception("Empty cards' array in the method TryFindStraight");
+            
+            //Start searching from  the min value 
+            var buf = set.Min();
+
+            #region Cheking for the least Straight Flush combination
+
+            if (buf.Value == CardValue.Two)
+                if (set.Max().Value == CardValue.Ace)
+                    if (set.Any(card => card.Value == CardValue.Three))
+                        if (set.Any(card => card.Value == CardValue.Four))
+                            return true;
+
+            #endregion
+
+            //So as there may be from five to seven cards in the input array
+            //we must do some settings for count=6 and count=7
+
+            if (set.Count == 6)
+            {
+                //For count=6 we must check only one extra if it belongs
+                // the interval or not
+                if (set.All(card => card.Value != buf.Value + 1))
+                {
+                    // And if not - chose the next card
+                    set.Sort();
+                    buf.Value = set[1].Value;
+                    set.Remove(buf);
+                }
+            }
+            else if (set.Count == 7)
+            {
+                //For count=7 we must check two extra cards
+
+                if (set.All(card => card.Value != buf.Value + 1))
+                {
+                    set.Sort();
+                    buf.Value = set[1].Value;
+
+                    if (set.All(card => card.Value != buf.Value + 1))
+                    {
+                        buf.Value = set[2].Value;
+                    }
+                }
+            }
+
+            //At the end of the checking we should check the rest cards
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (set.Any(card => card.Value == buf.Value + 1))
+                {
+                    buf.Value++;
+                }
+                else
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool TryFindSet(List<Card> cards)
+        {
+            if (cards.Count == 0)
+                throw new Exception("Empty cards' array in the method TryFindSet");
+
+            var buf = cards[0].Value;
+
+            //Here we try find four same cards.
+            //So as there may be from five to seven cards in the input array,
+            // we decided to do extra iterations for count=5
+            // instead of making settings for count=6 and count=7
+
+            for (int i = 1; i <= 4; i++)
+            {
+                if (cards.Count(card => card.Value == buf) != 3)
+                {
+                    buf = cards[i].Value;
+                }
+                else
+                    return true;
+            }
+
+            return false;
+        }
+
+        private static bool TryFindTwoPairs(List<Card> set)
+        {
+            var list = new List<Card>(set);
+            
+            for (int i = 0; i < 2; i++)
+            {
+                if (TryFindPair(list))
+                    ExtractPair(list).ForEach(card => list.Remove(card));
+                else
+                    return false;
+            }
+
+            return true;
+        }
+        
+        private static bool TryFindPair(List<Card> set)
+        {
+            if (set.Count == 0)
+                throw new Exception("Empty cards' array in the method TryPair");
+
+            for (int i = 0; i < 5 && i < set.Count; i++)
+            {
+                var card = set[i];
+
+                if (set.Any(card1 => card1.Value == card.Value))
+                    return true;
+            }
+
+            return false;
+        }
+
+        #endregion
+
     }
-#endregion
+
 }
