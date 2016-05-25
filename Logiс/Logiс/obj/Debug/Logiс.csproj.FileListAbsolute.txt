@@ -1,0 +1,5 @@
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\Logiс\obj\Debug\Logiс.csprojResolveAssemblyReference.cache
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\Logiс\bin\Debug\Logiс.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\Logiс\bin\Debug\Logiс.pdb
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\Logiс\obj\Debug\Logiс.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\Logiс\obj\Debug\Logiс.pdb
