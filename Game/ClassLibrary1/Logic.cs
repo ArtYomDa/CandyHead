@@ -13,31 +13,46 @@ namespace Logiс
     public static class LogicClass
     {
         //TODO: Change combinations' codes afted making codes' table
-        //public static int GetPlayerBestCombination(List<Card> hand, List<Card> table)
-        //{
+        public static int GetPlayerBestCombination(List<Card> hand, List<Card> table)
+        {
 
-        //    #region Create collection for the combination searching
+            #region Create collection for the combination searching
             
-        //    var set = new List<Card>();
-        //    set.AddRange(hand);
-        //    set.AddRange(table);
+            var set = new List<Card>();
+            set.AddRange(hand);
+            set.AddRange(table);
 
-        //    #endregion
+            #endregion
 
-        //    if (IsOnlyOneSuit(set))
-        //    {
-        //        if (TryFindRoyalFlush(set))
-        //            return 100;
+            if (TryFindRoyalFlush(set))
+                return 10;
 
-        //        if (TryFindStraightFlush(set))
-        //            return 90;
+            if (TryFindStraightFlush(set))
+                return 9;
 
-        //        //TODO: Here must be a returning of flush combination
-        //        //TODO: but it depends on the hight card.
-        //        return 10;
-        //    }
+            if (TryFindFourOfAKind(set))
+                return 8;
+
+            if (TryFindFullHouse(set))
+                return 7;
             
-        //}
+            if (TryFindFlush(set))
+                return 6;
+
+            if (TryFindStraight(set))
+                return 5;
+
+            if (TryFindSet(set))
+                return 4;
+
+            if (TryFindTwoPairs(set))
+                return 3;
+
+            if (TryFindPair(set))
+                return 2;
+
+            return 1;
+        }
 
         #region Extract Functions
 

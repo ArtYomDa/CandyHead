@@ -5,7 +5,9 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logiс", "Logiс\Logiс.csproj", "{06262FC0-C5F9-49F3-B888-599B97E7D18E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{E6473F9A-B4BE-48E7-A66C-43F690AA8029}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingPrivateMethods", "UnitTestProject1\TestingPrivateMethods.csproj", "{E6473F9A-B4BE-48E7-A66C-43F690AA8029}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingInterface", "TestingInterface\TestingInterface.csproj", "{479AD72C-0C7B-4344-96C7-1A24BB20EFCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E6473F9A-B4BE-48E7-A66C-43F690AA8029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6473F9A-B4BE-48E7-A66C-43F690AA8029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6473F9A-B4BE-48E7-A66C-43F690AA8029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{479AD72C-0C7B-4344-96C7-1A24BB20EFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479AD72C-0C7B-4344-96C7-1A24BB20EFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479AD72C-0C7B-4344-96C7-1A24BB20EFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479AD72C-0C7B-4344-96C7-1A24BB20EFCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

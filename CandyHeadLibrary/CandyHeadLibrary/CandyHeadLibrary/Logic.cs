@@ -2,42 +2,53 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
-using Card = Cards.Card;
-using Cards;
 
 
-namespace Logiс
+namespace CandyHeadLibrary
 {
     public static class LogicClass
     {
         //TODO: Change combinations' codes afted making codes' table
-        //public static int GetPlayerBestCombination(List<Card> hand, List<Card> table)
-        //{
+        public static int GetPlayerBestCombination(List<Card> hand, List<Card> table)
+        {
 
-        //    #region Create collection for the combination searching
-            
-        //    var set = new List<Card>();
-        //    set.AddRange(hand);
-        //    set.AddRange(table);
+            #region Create collection for the combination searching
 
-        //    #endregion
+            var set = new List<Card>();
+            set.AddRange(hand);
+            set.AddRange(table);
 
-        //    if (IsOnlyOneSuit(set))
-        //    {
-        //        if (TryFindRoyalFlush(set))
-        //            return 100;
+            #endregion
 
-        //        if (TryFindStraightFlush(set))
-        //            return 90;
+            if (TryFindRoyalFlush(set))
+                return 10;
 
-        //        //TODO: Here must be a returning of flush combination
-        //        //TODO: but it depends on the hight card.
-        //        return 10;
-        //    }
-            
-        //}
+            if (TryFindStraightFlush(set))
+                return 9;
+
+            if (TryFindFourOfAKind(set))
+                return 8;
+
+            if (TryFindFullHouse(set))
+                return 7;
+
+            if (TryFindFlush(set))
+                return 6;
+
+            if (TryFindStraight(set))
+                return 5;
+
+            if (TryFindSet(set))
+                return 4;
+
+            if (TryFindTwoPairs(set))
+                return 3;
+
+            if (TryFindPair(set))
+                return 2;
+
+            return 1;
+        }
 
         #region Extract Functions
 
@@ -46,12 +57,12 @@ namespace Logiс
             var dictionary = SplitBySuit(set);
 
             return (from pair in dictionary
-                where pair.Value.Count >= 5
-                where pair.Value.Any(card => card.Value == CardValue.Ten)
-                where pair.Value.Any(card => card.Value == CardValue.Jack)
-                where pair.Value.Any(card => card.Value == CardValue.Queen)
-                where pair.Value.Any(card => card.Value == CardValue.King)
-                select pair).Select(pair => pair.Value).ToList()[0];
+                    where pair.Value.Count >= 5
+                    where pair.Value.Any(card => card.Value == CardValue.Ten)
+                    where pair.Value.Any(card => card.Value == CardValue.Jack)
+                    where pair.Value.Any(card => card.Value == CardValue.Queen)
+                    where pair.Value.Any(card => card.Value == CardValue.King)
+                    select pair).Select(pair => pair.Value).ToList()[0];
         }
 
         public static List<Card> ExtractStraightFlush(List<Card> set)
@@ -74,14 +85,14 @@ namespace Logiс
             #endregion
 
             #region Processing the least Straight Flush combination
-            
+
             var listForWheel = (from card in list
-                where card.Value == CardValue.Ace
-                      || card.Value == CardValue.Two
-                      || card.Value == CardValue.Three
-                      || card.Value == CardValue.Four
-                      || card.Value == CardValue.Five
-                select card).ToList();
+                                where card.Value == CardValue.Ace
+                                      || card.Value == CardValue.Two
+                                      || card.Value == CardValue.Three
+                                      || card.Value == CardValue.Four
+                                      || card.Value == CardValue.Five
+                                select card).ToList();
 
             if (listForWheel.Count == 5)
                 return listForWheel;
@@ -90,9 +101,9 @@ namespace Logiс
 
             var buf = list.Min();
             list.Sort();
-            
+
             //Searching for the first card in the combination
-            
+
             for (int i = 1; i <= 4; i++)
             {
                 if (!(list.Any(card => card.Value == buf.Value + 1 && card.Suit == buf.Suit) &&
@@ -122,12 +133,12 @@ namespace Logiс
         {
             if (set.Count == 0)
                 throw new Exception("Empty cards' array in the method ExtractFourOfAKind");
-            
+
             // Create new card array, because we need to have oportunity
             // to remove cards from the array
 
             List<Card> _set = new List<Card>(set);
-            
+
             var fourOfAKindCard = _set[0];
             int i = 1;
 
@@ -142,8 +153,8 @@ namespace Logiс
             }
 
             var list = (from card in _set
-                where card.Value == fourOfAKindCard.Value
-                select card).ToList();
+                        where card.Value == fourOfAKindCard.Value
+                        select card).ToList();
 
             _set.RemoveAll(card => card.Value == fourOfAKindCard.Value);
 
@@ -161,17 +172,17 @@ namespace Logiс
 
             return rezult;
         }
-        
+
         public static List<Card> ExtractFlush(List<Card> set)
         {
             var dictionary = SplitBySuit(set);
 
             //Gother cards with same suits 
-            
+
             var listSameSuit = (from pair in dictionary
-                where pair.Value.Count >= 5
-                select pair.Value).ToList()[0];
-            
+                                where pair.Value.Count >= 5
+                                select pair.Value).ToList()[0];
+
             //Then remove the least card, until there will be five cards in the array
 
             while (listSameSuit.Count != 5)
@@ -231,35 +242,35 @@ namespace Logiс
         {
             var list = new List<Card>(cards);
             List<Card> rezult = new List<Card>();
-            
+
             for (int i = 0; i < list.Count && list.Count > 3; i++)
             {
                 var card = list[i];
-                
+
                 //If there is Set in the input array
-                
+
                 if (list.Count(card1 => card1.Value == card.Value) == 3)
                 {
                     // take it
                     var range = list.FindAll(card1 => card1.Value == card.Value);
-                    
+
                     // and if it is greater than a preveous one
                     if (rezult.Count != 0)
-                        if (range.Max().Value <= rezult.Max().Value) 
+                        if (range.Max().Value <= rezult.Max().Value)
                             continue;
 
                     // put it in the output array
                     rezult.Clear();
                     rezult.AddRange(range);
-                    
+
                     //Remove finded Set from array
                     list.RemoveAll(card1 => card1.Value == card.Value);
                     i = -1;     //reset i
                 }
             }
-            
+
             //Put kickers in the output array
-            
+
             list = new List<Card>(cards);
             rezult.ForEach(card => list.Remove(card));
 
@@ -278,7 +289,7 @@ namespace Logiс
             for (int i = 0; i < 2; i++)
             {
                 var buf = ExtractPair(list);
-                
+
                 rezult.Add(buf[0]);
                 rezult.Add(buf[1]);
 
@@ -305,7 +316,7 @@ namespace Logiс
                         }
                     }
                 }
-                
+
             }
 
             rezult.Add(list.Max());
@@ -379,8 +390,8 @@ namespace Logiс
             return rezult;
         }
 
-        #endregion        
-        
+        #endregion
+
         #region Compare Functions
 
         public static int CompareStraightFlush(List<Card> straightFlush_1, List<Card> straightFlush_2)
@@ -400,7 +411,7 @@ namespace Logiс
         {
             return CompareCombinationsWithKickers(fullHouse_1, fullHouse_2, 3);
         }
-        
+
         public static int CompareFlush(List<Card> flush_1, List<Card> flush_2)
         {
             var value_1 = flush_1.Max().Value;
@@ -414,7 +425,7 @@ namespace Logiс
 
             return 0;
         }
-        
+
         public static int CompareStraight(List<Card> straight_1, List<Card> straight_2)
         {
             var value_1 = straight_1.Max().Value;
@@ -463,14 +474,14 @@ namespace Logiс
 
             return CompareCombinationsWithKickers(pair_1, pair_2, 2);
         }
-        
+
         #endregion
 
-        #region TryFind functions  
+        #region TryFind functions
 
         public static bool IsOnlyOneSuit(List<Card> cards)
         {
-            if (cards.Count == 0) 
+            if (cards.Count == 0)
                 throw new Exception("Empty cards' array in the method IsOnlyOneSuit");
 
             var model = cards[0].Value;
@@ -490,7 +501,7 @@ namespace Logiс
                 }
                 else
                 {
-                    dictionary.Add(card.Suit, new List<Card> {card});
+                    dictionary.Add(card.Suit, new List<Card> { card });
                 }
             }
 
@@ -523,12 +534,12 @@ namespace Logiс
             var dictionary = SplitBySuit(set);
 
             return (from pair in dictionary
-                where pair.Value.Count >= 5
-                where pair.Value.Any(card => card.Value == CardValue.Ten)
-                where pair.Value.Any(card => card.Value == CardValue.Jack)
-                where pair.Value.Any(card => card.Value == CardValue.Queen)
-                where pair.Value.Any(card => card.Value == CardValue.King)
-                select pair).Any(pair => pair.Value.Any(card => card.Value == CardValue.Ace));
+                    where pair.Value.Count >= 5
+                    where pair.Value.Any(card => card.Value == CardValue.Ten)
+                    where pair.Value.Any(card => card.Value == CardValue.Jack)
+                    where pair.Value.Any(card => card.Value == CardValue.Queen)
+                    where pair.Value.Any(card => card.Value == CardValue.King)
+                    select pair).Any(pair => pair.Value.Any(card => card.Value == CardValue.Ace));
         }
 
         public static bool TryFindStraightFlush(List<Card> set)
@@ -540,12 +551,12 @@ namespace Logiс
             // only once in the array
 
             #region Creating new cards' array
- 
+
             var dictionary = SplitBySuit(set);
 
             var temp = (from pair in dictionary
-                where pair.Value.Count >= 5
-                select pair.Value).ToList();
+                        where pair.Value.Count >= 5
+                        select pair.Value).ToList();
 
             List<Card> list;
 
@@ -563,14 +574,14 @@ namespace Logiс
         {
             if (set.Count == 0)
                 throw new Exception("Empty cards' array in the method TryFindFourOfAKind");
-            
+
             var buf = set[0].Value;
 
             //Here we try find four same cards.
             //So as there may be from five to seven cards in the input array,
             // we decided to do extra iterations for count=5
             // instead of making settings for count=6 and count=7
-            
+
             for (int i = 1; i <= 3; i++)
             {
                 if (set.Count(card => card.Value == buf) != 4)
@@ -617,7 +628,7 @@ namespace Logiс
         {
             if (set.Count == 0)
                 throw new Exception("Empty cards' array in the method TryFindStraight");
-            
+
             //Start searching from  the min value 
             var buf = set.Min();
 
@@ -693,7 +704,7 @@ namespace Logiс
         public static bool TryFindTwoPairs(List<Card> set)
         {
             var list = new List<Card>(set);
-            
+
             for (int i = 0; i < 2; i++)
             {
                 if (TryFindPair(list))
