@@ -12,6 +12,7 @@ namespace CandyHeadLibrary
         public int Cash { get; set; }
         public int Id { get; set; }
         public int Combination { get; set; }
-
+        public int Bet { get; set; }
+        
     }
 }

@@ -20,14 +20,46 @@ namespace CandyHeadLibrary
 
         #endregion
 
-        private readonly List<Player> _players = new List<Player>();
+        private readonly Dictionary<int, Player> _players = new Dictionary<int, Player>();
 
-        private readonly DeckClass _deck = new DeckClass();
+        private DeckClass _deck = new DeckClass();
 
-        public List<Player> Players { get { return _players; } }
+        private readonly List<Card> _table = new List<Card>();
+
+        public Dictionary<int, Player> Players { get { return _players; } }
 
         public DeckClass Deck { get { return _deck; } }
 
+        public List<Card> Table { get { return _table; } }
 
+        public int CurrentBet { get; set; }
+
+        public int ReraiseAmmount { get; set; }
+
+        public void ResetDeck()
+        {
+            _deck = new DeckClass();
+        }
+
+        public void Raise(int id, int bet)
+        {
+            var player = _players[id];
+
+            player.Cash -= bet;
+            player.Bet += bet;
+            CurrentBet = bet;
+
+            ReraiseAmmount++;
+        }
+
+        public void Call(int id)
+        {
+            var player = _players[id];
+
+            player.Cash -= CurrentBet - player.Bet;
+            player.Bet = CurrentBet;
+        }
+
+        
     }
 }
