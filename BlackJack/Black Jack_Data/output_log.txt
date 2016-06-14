@@ -1,0 +1,37 @@
+Initialize engine version: 5.1.4f1 (36d0f3617432)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 8650G + 8500M Dual Graphics (ID=0x990b)
+    Vendor:   ATI
+    VRAM:     2772 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.540 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Lenovo\Desktop\BlackJack\Black Jack_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.991851 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 649.
+Total: 0.671356 ms (FindLiveObjects: 0.098897 ms CreateObjectMapping: 0.020928 ms MarkObjects: 0.525677 ms  DeleteObjects: 0.022570 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.895008 ms
+
+Unloading 69 unused Assets to reduce memory usage. Loaded Objects now: 188.
+Total: 0.667663 ms (FindLiveObjects: 0.076327 ms CreateObjectMapping: 0.028315 ms MarkObjects: 0.533063 ms  DeleteObjects: 0.029135 ms)
+
