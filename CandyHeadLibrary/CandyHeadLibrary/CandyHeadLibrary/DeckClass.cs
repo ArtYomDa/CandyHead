@@ -8,8 +8,8 @@ namespace CandyHeadLibrary
 {
     public class DeckClass
     {
-        private List<Card> _cards;
-        private Random _random = new Random();
+        private readonly List<Card> _cards;
+        private readonly Random _random = new Random();
 
         public DeckClass()
         {
@@ -30,7 +30,7 @@ namespace CandyHeadLibrary
 
                 suit++;
             }
-
+            _cards = cards;
             Shuffle();
         }
 
