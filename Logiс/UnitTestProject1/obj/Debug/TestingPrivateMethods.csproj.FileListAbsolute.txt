@@ -1,0 +1,4 @@
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

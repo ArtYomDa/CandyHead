@@ -1,0 +1,5 @@
+C:\Users\Lenovo\Desktop\курсач\New Unity Project\Library\CandyHeadLibrary\CandyHeadLibrary\obj\Debug\CandyHeadLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\курсач\New Unity Project\Library\CandyHeadLibrary\CandyHeadLibrary\bin\Debug\CandyHeadLibrary.dll
+C:\Users\Lenovo\Desktop\курсач\New Unity Project\Library\CandyHeadLibrary\CandyHeadLibrary\bin\Debug\CandyHeadLibrary.pdb
+C:\Users\Lenovo\Desktop\курсач\New Unity Project\Library\CandyHeadLibrary\CandyHeadLibrary\obj\Debug\CandyHeadLibrary.dll
+C:\Users\Lenovo\Desktop\курсач\New Unity Project\Library\CandyHeadLibrary\CandyHeadLibrary\obj\Debug\CandyHeadLibrary.pdb

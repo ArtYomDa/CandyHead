@@ -1,0 +1,5 @@
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\TestingInterface\bin\Debug\TestingInterface.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\TestingInterface\bin\Debug\TestingInterface.pdb
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\TestingInterface\obj\Debug\TestingInterface.csprojResolveAssemblyReference.cache
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\TestingInterface\obj\Debug\TestingInterface.dll
+C:\Users\Eremita\Desktop\Курсач 2016\Logiс\TestingInterface\obj\Debug\TestingInterface.pdb
