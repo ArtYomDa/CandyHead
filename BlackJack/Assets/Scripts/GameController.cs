@@ -250,6 +250,7 @@ public class GameController : MonoBehaviour
         stickButton.interactable = false;
 
         CardStackView view = dealer.GetComponent<CardStackView>();
+        
         view.Toggle(dealersFirstCard, true);
         view.ShowCards();
         yield return new WaitForSeconds(1f);
