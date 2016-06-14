@@ -40,7 +40,6 @@ public class Menu : MonoBehaviour {
             }
         }
 
-
         if (window == 4)
         {
             GUI.Label(new Rect(50, 10, 180, 30), "Об Игре");
@@ -50,8 +49,6 @@ public class Menu : MonoBehaviour {
                 window = 1;
             }
         }
-
-
 
         if (window == 5)
         {

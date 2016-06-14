@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour 
 {
     int dealersFirstCard = -1;
+    int PlayerBet;
+    int PlayerBank = 3000;
 
     public CardStack player;
     public CardStack dealer;
@@ -13,6 +17,16 @@ public class GameController : MonoBehaviour
     public Button hitButton;
     public Button stickButton;
     public Button playAgainButton;
+    public Button ExitToMenuButton;
+    public Button OneDollarButton;
+    public Button FiveDollarsButton;
+    public Button TenDollarsButton;
+    public Button QuarterButton;
+    public Button HundrerBotton;
+    public Button DealButton;
+
+    public Text PlayerBankText;
+    public Text PlayerBetsText;
 
     public Text winnerText;
     
@@ -24,14 +38,12 @@ public class GameController : MonoBehaviour
      */
 
     #region Public methods
-
     public void Hit()
     {
         player.Push(deck.Pop());
         if (player.HandValue() > 21)
         {
-            hitButton.interactable = false;
-            stickButton.interactable = false;
+            HitStickLock(false);
             StartCoroutine(DealersTurn());
         }
     }
@@ -54,13 +66,105 @@ public class GameController : MonoBehaviour
 
         winnerText.text = "";
 
-        hitButton.interactable = true;
-        stickButton.interactable = true;
+        BetsBlock(true);
 
         dealersFirstCard = -1;
 
-        StartGame();
+        MakingBet();
     }
+
+    public void ExitToMenu()
+    {
+        Application.LoadLevel(0);
+    }
+
+    public void OneDollar()
+    {
+        winnerText.text = "";
+        if (PlayerBank >= 1)
+        {
+            PlayerBet++;
+            PlayerBank--;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете поставить больше.";
+        }
+        CashRefresh();
+    }
+    public void FiveDollars()
+    {
+        winnerText.text = "";
+        if (PlayerBank >= 5)
+        {
+            PlayerBet += 5;
+            PlayerBank -= 5;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете поставить больше.";
+        }
+        CashRefresh();
+    }
+    public void TenDollars()
+    {
+        winnerText.text = "";
+        if (PlayerBank >= 10)
+        {
+            PlayerBet += 10;
+            PlayerBank -= 10;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете поставить больше.";
+        }
+        CashRefresh();
+    }
+    public void QuarterDollars()
+    {
+        winnerText.text = "";
+        if (PlayerBank >= 25)
+        {
+            PlayerBet += 25;
+            PlayerBank -= 25;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете поставить больше.";
+        }
+        CashRefresh();
+    }
+    public void HundredDollars()
+    {
+        winnerText.text = "";
+        if (PlayerBank >= 100)
+        {
+            PlayerBet += 100;
+            PlayerBank -= 100;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете поставить больше.";
+        }
+        CashRefresh();
+    }
+
+
+    public void Deal()
+    {
+        winnerText.text = "";
+        if (PlayerBet > 0)
+        {
+            BetsBlock(false);
+            HitStickLock(true);
+            StartGame();
+        }
+        else
+        {
+            winnerText.text = "Прежде чем начать игру, нужно сделать ставку.";
+        }
+    }
+
 
     #endregion
 
@@ -68,16 +172,57 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        StartGame();
+        PlayerBankText.text = "Банк: " + PlayerBank;
+        MakingBet();
     }
+
 
     #endregion
 
+    void CashRefresh()
+    {
+        PlayerBankText.text = "Банк: " + PlayerBank;
+        PlayerBetsText.text = "Ставка: " + PlayerBet;
+    }
+
+    void BetsBlock(bool a)
+    {
+        OneDollarButton.interactable = a;
+        FiveDollarsButton.interactable = a;
+        TenDollarsButton.interactable = a;
+        QuarterButton.interactable = a;
+        HundrerBotton.interactable = a;
+        DealButton.interactable = a;
+    }
+
+    void HitStickLock(bool a)
+    {
+        hitButton.interactable = a;
+        stickButton.interactable = a;
+    }
+
+    void MakingBet()
+    {
+        if (PlayerBank > 0)
+        {
+            PlayerBet = 0;
+            CashRefresh();
+            HitStickLock(false);
+            DealButton.interactable = true;
+        }
+        else
+        {
+            winnerText.text = "Вы не можете продолжать игру";
+        }
+    }
+
     void StartGame()
     {
+        winnerText.text = "";
         for (int i = 0; i < 2; i++)
         {
             player.Push(deck.Pop());
+            
             HitDealer();
         }
     }
@@ -117,11 +262,13 @@ public class GameController : MonoBehaviour
 
         if (player.HandValue() > 21 || (dealer.HandValue() >= player.HandValue() && dealer.HandValue() <= 21))
         {
-            winnerText.text = "You lose.";
+            winnerText.text = "Вы проиграли";
         }
         else if (dealer.HandValue() > 21 || (player.HandValue() <= 21 && player.HandValue() > dealer.HandValue()))
         {
-            winnerText.text = "You win!";
+            winnerText.text = "Вы выиграли!";
+            PlayerBet = PlayerBet * 2; 
+            PlayerBank = PlayerBank + PlayerBet;
         }
         else
         {
